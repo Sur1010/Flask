@@ -1,6 +1,7 @@
 import models
 from app import db
 from app import app
+from models import Tag
 with app.app_context():
     db.create_all()
 
@@ -18,4 +19,9 @@ with app.app_context():
 p2 = Post(title='Third post! 3-test', body ='Third post body')
 with app.app_context():
     db.session.add(p2)
+    db.session.commit()
+
+tag = Tag(name="python")
+with app.app_context():
+    db.session.add(tag)
     db.session.commit()
